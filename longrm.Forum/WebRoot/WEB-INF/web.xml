@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+    <resource-ref>       
+      <description>DB Connection</description>       
+      <res-ref-name>jdbc/oracle</res-ref-name>       
+      <res-type>javax.sql.DataSource</res-type>       
+      <res-auth>Container</res-auth>       
+    </resource-ref>
+	
+	<filter>
+		<filter-name>Set Character Encoding</filter-name>
+		<filter-class>org.longrm.forum.filters.SetCharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>GBK</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>Set Character Encoding</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>Set Ajax/Flex Encoding</filter-name>
+		<filter-class>org.longrm.forum.filters.SetCharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>Set Ajax/Flex Encoding</filter-name>
+		<url-pattern>*.ajax</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Set Ajax/Flex Encoding</filter-name>
+		<url-pattern>*.flex</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>Login Flex Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.flex.LoginServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login Flex Servlet</servlet-name>
+		<url-pattern>/login.flex</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>Page Prepared</filter-name>
+		<filter-class>org.longrm.forum.filters.PagePreparedFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>Page Prepared</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>Register Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.RegisterServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Register Servlet</servlet-name>
+		<url-pattern>/register.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Login Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.LoginServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Login Servlet</servlet-name>
+		<url-pattern>/login.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Logout Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.LogoutServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Logout Servlet</servlet-name>
+		<url-pattern>/logout.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Topic Post Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.TopicPostServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Topic Post Servlet</servlet-name>
+		<url-pattern>/topicpost.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Topic Manage Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.TopicManageServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Topic Manage Servlet</servlet-name>
+		<url-pattern>/topicmanage.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Delete Retopic Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.DeleteRetopicServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Delete Retopic Servlet</servlet-name>
+		<url-pattern>/deleteretopic.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Send Message Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.SendMessageServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Send Message Servlet</servlet-name>
+		<url-pattern>/sendmessage.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Delete Message Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.DeleteMessageServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Delete Message Servlet</servlet-name>
+		<url-pattern>/deletemessage.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Friend Manage Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.FriendManageServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Friend Manage Servlet</servlet-name>
+		<url-pattern>/friendmanage.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Favourite Manage Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.FavouriteManageServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Favourite Manage Servlet</servlet-name>
+		<url-pattern>/favouritemanage.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Search Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.SearchServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Search Servlet</servlet-name>
+		<url-pattern>/search.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Edit Self Info Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.EditSelfInfoServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Edit Self Info Servlet</servlet-name>
+		<url-pattern>/editselfinfo.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>File UpLoad Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.FileUpLoadServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>File UpLoad Servlet</servlet-name>
+		<url-pattern>/fileupload.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>File DownLoad Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.FileDownLoadServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>File DownLoad Servlet</servlet-name>
+		<url-pattern>/filedownload.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Validate Servlet</servlet-name>
+		<servlet-class>
+			org.longrm.forum.servlet.ValidateServlet
+		</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Validate Servlet</servlet-name>
+		<url-pattern>/validate.ajax</url-pattern>
+	</servlet-mapping>
+
+</web-app>

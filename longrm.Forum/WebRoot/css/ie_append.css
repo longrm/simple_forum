@@ -1,0 +1,26 @@
+/* CSS Document */
+
+.btn {
+	PADDING-RIGHT: 0.15em; PADDING-LEFT: 0.15em; HEIGHT: 21px
+}
+.tr1 TD.td1 {
+	BORDER-TOP-WIDTH: 0px
+}
+.t4 {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.pages A {
+	PADDING-RIGHT: 4px; PADDING-LEFT: 4px; PADDING-BOTTOM: 2px; PADDING-TOP: 1px
+}
+.t TABLE {
+	WIDTH: 100%; BORDER-COLLAPSE: collapse
+}
+.t {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; PADDING-TOP: 0px
+}
+.menu A {
+	HEIGHT: 14px
+}
+.t TABLE {
+	BORDER-RIGHT: #fff 1px solid; BORDER-TOP: #fff 1px solid; BORDER-LEFT: #fff 1px solid; BORDER-BOTTOM: #fff 1px solid
+}
